@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso administrador — BarberCo</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <main class="login-box">
+    <h1 class="login-logo">BarberCo</h1>
+    <p class="login-sub">Acceso Administrador</p>
+
+    <form id="login-form" novalidate>
+      <div class="form-field">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="admin@barberco.com" autocomplete="username" required>
+      </div>
+
+      <div class="form-field">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required>
+      </div>
+
+      <button type="submit" class="btn-login" id="btn-login">Iniciar sesión</button>
+
+      <div class="error-msg" id="error-msg" role="alert">Correo o contraseña incorrectos.</div>
+    </form>
+
+    <p class="login-hint">
+      Acceso de demostración<br>
+      <strong>admin@barberco.com</strong> · <strong>admin123</strong>
+    </p>
+
+    <a href="index.html" class="back-link">← Volver al sitio</a>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

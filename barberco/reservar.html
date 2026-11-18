@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserva tu cita en BarberCo en 4 pasos: barbero, servicio, fecha y confirmación.">
+  <title>Reservar cita — BarberCo</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/reservar.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Principal">
+    <a href="index.html" class="nav-logo">BarberCo</a>
+    <a href="index.html" class="nav-back">← Volver al inicio</a>
+  </nav>
+
+  <main class="page">
+
+    <!-- INDICADOR DE PASOS -->
+    <ol class="stepper" aria-label="Progreso de la reservación">
+      <li class="step active" id="step-ind-1"><span class="step-num">1</span><span class="step-label">Barbero</span></li>
+      <li class="step-line" aria-hidden="true"></li>
+      <li class="step" id="step-ind-2"><span class="step-num">2</span><span class="step-label">Servicio</span></li>
+      <li class="step-line" aria-hidden="true"></li>
+      <li class="step" id="step-ind-3"><span class="step-num">3</span><span class="step-label">Fecha y datos</span></li>
+      <li class="step-line" aria-hidden="true"></li>
+      <li class="step" id="step-ind-4"><span class="step-num">4</span><span class="step-label">Confirmar</span></li>
+    </ol>
+
+    <!-- PANTALLA DE ÉXITO -->
+    <section class="success-screen" id="success-screen" aria-live="polite">
+      <div class="success-icon">✓</div>
+      <h2>¡Cita Agendada!</h2>
+      <p>Tu reservación fue registrada exitosamente. Te esperamos en BarberCo.</p>
+      <div class="success-detail" id="success-detail"></div>
+      <br>
+      <a href="mis-reservas.html" class="btn-link">Ver mis reservas →</a>
+      <p class="local-note">Tu cita se guarda en este navegador. Para consultarla usa el mismo equipo y el mismo correo.</p>
+    </section>
+
+    <!-- PASO 1: BARBERO -->
+    <section class="step-panel active" id="panel-1">
+      <h1 class="panel-title">Elige tu Barbero</h1>
+      <p class="panel-sub">Selecciona al profesional con quien quieres tu cita.</p>
+      <div class="card-grid" id="barberos-grid"></div>
+      <div class="actions">
+        <span></span>
+        <button type="button" class="btn-primary" id="btn-next-1" disabled>Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- PASO 2: SERVICIO -->
+    <section class="step-panel" id="panel-2">
+      <h1 class="panel-title">Elige tu Servicio</h1>
+      <p class="panel-sub">¿Qué te vamos a hacer hoy?</p>
+      <div class="card-grid" id="servicios-grid"></div>
+      <div class="actions">
+        <button type="button" class="btn-ghost" data-goto="1">← Atrás</button>
+        <button type="button" class="btn-primary" id="btn-next-2" disabled>Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- PASO 3: FECHA Y DATOS -->
+    <section class="step-panel" id="panel-3">
+      <h1 class="panel-title">Fecha y Datos</h1>
+      <p class="panel-sub">Elige cuándo y déjanos tus datos de contacto.</p>
+
+      <div class="datetime-grid">
+        <div class="dt-section">
+          <label for="fecha-input">Fecha</label>
+          <input type="date" id="fecha-input">
+        </div>
+        <div class="dt-section">
+          <span class="dt-label" id="slots-label">Horario disponible</span>
+          <div class="slots-grid" id="slots-grid" role="group" aria-labelledby="slots-label">
+            <p class="slots-empty">Selecciona una fecha primero</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="input-nombre">Nombre completo</label>
+          <input type="text" id="input-nombre" placeholder="Juan Pérez" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="input-telefono">Teléfono</label>
+          <input type="tel" id="input-telefono" placeholder="81 1234 5678" autocomplete="tel">
+        </div>
+        <div class="form-field full">
+          <label for="input-email">Correo electrónico</label>
+          <input type="email" id="input-email" placeholder="correo@ejemplo.com" autocomplete="email">
+        </div>
+        <div class="form-field full">
+          <label for="input-notas">Notas (opcional)</label>
+          <textarea id="input-notas" placeholder="Alguna indicación especial para tu barbero..."></textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn-ghost" data-goto="2">← Atrás</button>
+        <button type="button" class="btn-primary" id="btn-next-3" disabled>Revisar →</button>
+      </div>
+    </section>
+
+    <!-- PASO 4: CONFIRMAR -->
+    <section class="step-panel" id="panel-4">
+      <h1 class="panel-title">Confirmar Cita</h1>
+      <p class="panel-sub">Revisa los detalles antes de confirmar.</p>
+      <div class="summary-box" id="summary-box"></div>
+      <div class="error-msg" id="error-msg" role="alert"></div>
+      <div class="actions">
+        <button type="button" class="btn-ghost" data-goto="3">← Atrás</button>
+        <button type="button" class="btn-primary" id="btn-confirm">Confirmar reservación</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/reservar.js"></script>
+</body>
+</html>

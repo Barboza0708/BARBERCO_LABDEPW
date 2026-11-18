@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BarberCo — barbería de precisión. Conoce nuestros servicios y barberos y reserva tu cita en línea.">
+  <title>BarberCo — Barbería de Precisión</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="site-nav site-nav--overlay" aria-label="Principal">
+    <a href="index.html" class="nav-logo">BarberCo</a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#barberos">Barberos</a></li>
+      <li><a href="#horarios">Horarios</a></li>
+      <li><a href="mis-reservas.html">Mis reservas</a></li>
+      <li><a href="reservar.html" class="nav-cta">Reservar ahora</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Barbería de precisión · Est. 2024</p>
+        <h1 class="hero-title" id="hero-title">
+          Cortes<br>
+          <span>que</span>
+          Definen
+        </h1>
+        <p class="hero-subtitle">
+          Cada corte es una declaración. Reserva con tu barbero
+          de confianza y llega sabiendo que saldrás diferente.
+        </p>
+        <div class="hero-actions">
+          <a href="reservar.html" class="btn-primary">Reservar cita</a>
+          <a href="#servicios" class="btn-ghost-link">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-image-bg">
+          <div class="hero-deco">
+            <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+              <circle cx="250" cy="250" r="200" stroke="#c9a84c" stroke-width="1"/>
+              <circle cx="250" cy="250" r="160" stroke="#c9a84c" stroke-width="0.5"/>
+              <line x1="50" y1="250" x2="450" y2="250" stroke="#c9a84c" stroke-width="0.5"/>
+              <line x1="250" y1="50" x2="250" y2="450" stroke="#c9a84c" stroke-width="0.5"/>
+              <line x1="108" y1="108" x2="392" y2="392" stroke="#c9a84c" stroke-width="0.3"/>
+              <line x1="392" y1="108" x2="108" y2="392" stroke="#c9a84c" stroke-width="0.3"/>
+            </svg>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <span>Calidad<br>·<br>Precisión<br>·<br>Estilo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CINTA DE SERVICIOS (decorativa) -->
+    <div class="strip" aria-hidden="true">
+      <div class="strip-inner">
+        <span class="strip-item">CORTE CLÁSICO</span><span class="strip-dot">◆</span>
+        <span class="strip-item">DEGRADADO</span><span class="strip-dot">◆</span>
+        <span class="strip-item">ARREGLO DE BARBA</span><span class="strip-dot">◆</span>
+        <span class="strip-item">AFEITADO CON NAVAJA</span><span class="strip-dot">◆</span>
+        <span class="strip-item">PAQUETE PREMIUM</span><span class="strip-dot">◆</span>
+        <span class="strip-item">CORTE CLÁSICO</span><span class="strip-dot">◆</span>
+        <span class="strip-item">DEGRADADO</span><span class="strip-dot">◆</span>
+        <span class="strip-item">ARREGLO DE BARBA</span><span class="strip-dot">◆</span>
+        <span class="strip-item">AFEITADO CON NAVAJA</span><span class="strip-dot">◆</span>
+        <span class="strip-item">PAQUETE PREMIUM</span><span class="strip-dot">◆</span>
+      </div>
+    </div>
+
+    <!-- SERVICIOS (se pintan desde js/index.js) -->
+    <section class="section" id="servicios" aria-labelledby="servicios-title">
+      <p class="section-label">Lo que ofrecemos</p>
+      <h2 class="section-title" id="servicios-title">Servicios</h2>
+      <p class="section-sub">Desde el corte más clásico hasta el paquete más completo. Precios fijos, sin sorpresas.</p>
+      <div class="services-grid" id="services-grid"></div>
+    </section>
+
+    <!-- BARBEROS (se pintan desde js/index.js) -->
+    <section class="barbers-section" id="barberos" aria-labelledby="barberos-title">
+      <div class="barbers-inner">
+        <p class="section-label">El equipo</p>
+        <h2 class="section-title" id="barberos-title">Nuestros Barberos</h2>
+        <p class="section-sub section-sub--flush">Profesionales con años de experiencia. Elige al tuyo al reservar.</p>
+        <div class="barbers-grid" id="barbers-grid"></div>
+      </div>
+    </section>
+
+    <!-- HORARIOS Y CONTACTO -->
+    <section class="section info-section" id="horarios" aria-labelledby="horarios-title">
+      <p class="section-label">Visítanos</p>
+      <h2 class="section-title" id="horarios-title">Horarios y contacto</h2>
+      <p class="section-sub">Atendemos con cita previa para que no pierdas tiempo en la sala de espera.</p>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Horario</h3>
+          <ul>
+            <li><span>Lunes a viernes</span><span>10:00 – 19:00</span></li>
+            <li><span>Sábado</span><span>10:00 – 19:00</span></li>
+            <li><span>Domingo</span><span>Cerrado</span></li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Ubicación</h3>
+          <p>Calle Ejemplo 123, Col. Centro<br>Ciudad, Estado</p>
+        </article>
+        <article class="info-card">
+          <h3>Contacto</h3>
+          <p>Tel. 81 0000 0000<br>contacto@barberco.com</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN -->
+    <section class="cta-section">
+      <p class="section-label">¿Listo?</p>
+      <h2 class="section-title">Agenda tu cita hoy</h2>
+      <p>Elige barbero, servicio y horario en menos de dos minutos. Sin registro, sin complicaciones.</p>
+      <a href="reservar.html" class="btn-primary">Reservar ahora →</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="logo">BarberCo</span>
+    <p>© <span id="year">2026</span> BarberCo · Todos los derechos reservados</p>
+    <a href="login.html">Acceso administrador</a>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
